@@ -1,7 +1,11 @@
-const fsNode = require('fs');
+'use strict';
 
-console.log(fsNode);
+const fs = require('fs');
 
-const message = 'Hello World';
+const textIn = fs.readFileSync('./txt/input.txt', 'utf-8');
 
-console.log(message);
+console.log(textIn);
+
+const textOut = `This is our available information on Avocados. ${textIn}. Created on ${Date.now()}`;
+
+fs.writeFileSync('./txt/output.txt', textOut);
